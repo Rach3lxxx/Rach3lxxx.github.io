@@ -1,0 +1,103 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Will You Be My Girlfriend? 💗</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .card {
+      background: white;
+      padding: 30px 40px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+      text-align: center;
+      max-width: 400px;
+    }
+    h1 {
+      color: #ff4d6d;
+    }
+    p {
+      font-size: 1.1rem;
+      margin-bottom: 25px;
+    }
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      position: relative;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: transform 0.2s, background 0.2s;
+    }
+    #yes {
+      background: #ff4d6d;
+      color: white;
+    }
+    #yes:hover {
+      background: #ff3355;
+      transform: scale(1.05);
+    }
+    #no {
+      background: #ddd;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>💌 Will You Be My Girlfriend?</h1>
+    <p>
+      I don’t need anything else—can you be my Christmas gift?.<br />
+    </p>
+    <div class="buttons">
+      <button id="yes">Yes 💗</button>
+      <button id="no">No 🥹</button>
+    </div>
+    <p id="result"></p>
+  </div>  <script>
+  const yesBtn = document.getElementById('yes');
+  const noBtn = document.getElementById('no');
+  const result = document.getElementById('result');
+
+  let noCount = 0;
+
+  const sweetMessages = [
+    "Are you sure? 🥺",
+    "My heart is getting smaller 💔",
+    "Pleaseeee press Yes 💗",
+    "Don’t do this to me 🥹",
+    "Look! Yes is growing for you 😳💞"
+  ];
+
+  yesBtn.addEventListener('click', () => {
+    result.innerHTML =
+      "I’ll do everything I can to make you the happiest person in the world 😻💖";
+  });
+
+  noBtn.addEventListener('click', () => {
+    noCount++;
+
+    // ขยายปุ่ม Yes
+    const scale = 1 + noCount * 0.15;
+    yesBtn.style.transform = `scale(${scale})`;
+
+    // ข้อความอ้อนสุ่ม
+    const randomMsg =
+      sweetMessages[Math.floor(Math.random() * sweetMessages.length)];
+    result.innerHTML = randomMsg;
+  });
+</script>
+  </script></body>
+</html>
